@@ -24,7 +24,7 @@
         <img v-if="image" src="/home/marc/Images/Papiers peints/202ca44ab66b775ddfbfd9d046bb1e1c.jpg" alt=""><br>
 
         <input type="list" v-model="pushMessage" />
-        <button @click="items.push(pushMessage)">ajouter</button>
+        <button @click="pushContent">ajouter</button>
         <ul v-for="item in items">
             <li>{{ item }}</li>
         </ul>
@@ -51,6 +51,10 @@
         setContent(){
             this.valider = this.content
             this.content = ""
+        },
+        pushContent(){
+            this.pushMessage=this.items.push(this.pushMessage)
+            this.pushMessage=''
         }
     }
   }).mount('#app')
