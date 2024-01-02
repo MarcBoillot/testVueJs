@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 :class="{red :checked}">{{ message }}</h1>
+        <input v-model="message" placeholder="edit me" />
+
+        <h2 :class="{red :checked}">{{valider}}</h2>
+        <input type="message" v-model="content" placeholder="" />
+        <button @click="setContent">valider</button>
+
+        <input type="checkbox" v-model="checked" id="checkbox"/>
+        <label for="checkbox">{{ checked }}</label></br>
+        
+        <button @click="image= !image" type="checkbox"><i>masquer l'image</i></button>
+        <img v-if="image" src="/home/marc/Images/Papiers peints/202ca44ab66b775ddfbfd9d046bb1e1c.jpg" alt=""><br>
+
+        <input type="list" name="" id=""/>
+        <ul>
+            <li>un</li>
+            <li>deux</li>
+            <li>trois</li>
+            <li>quatre</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!',
+        valider: 'valider',
+        content:'',
+        checked:false,
+        image:true,
+        table:[]
+      }
+    },
+    methods:{
+        setContent(){
+            this.valider = this.content
+            this.content = ""
+        }
+    }
+  }).mount('#app')
+</script>
+<style>.red{color:red}</style>
+
