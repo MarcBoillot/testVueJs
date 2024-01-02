@@ -23,12 +23,10 @@
         <button @click="image= !image" type="checkbox"><i>masquer l'image</i></button>
         <img v-if="image" src="/home/marc/Images/Papiers peints/202ca44ab66b775ddfbfd9d046bb1e1c.jpg" alt=""><br>
 
-        <input type="list" name="" id=""/>
-        <ul>
-            <li>un</li>
-            <li>deux</li>
-            <li>trois</li>
-            <li>quatre</li>
+        <input type="list" v-model="pushMessage" />
+        <button @click="items.push(pushMessage)">ajouter</button>
+        <ul v-for="item in items">
+            <li>{{ item }}</li>
         </ul>
     </div>
 </body>
@@ -45,7 +43,8 @@
         content:'',
         checked:false,
         image:true,
-        table:[]
+        pushMessage:'',
+        items:[]
       }
     },
     methods:{
